@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ox45yax2q1fo"]
+
+[ext_resource type="Script" path="res://scripts/powerup_card.gd" id="1_7wsvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_web2f"]
+bg_color = Color(0.16470589, 0.16470589, 0.2901961, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="PowerUpCard" type="Control" unique_id=650230337]
+custom_minimum_size = Vector2(200, 280)
+layout_mode = 3
+anchors_preset = 0
+modulate = Color(0.94, 0.94, 0.94, 1)
+script = ExtResource("1_7wsvy")
+
+[node name="Panel" type="Panel" parent="." unique_id=43144223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_web2f")
+
+[node name="IconRect" type="ColorRect" parent="Panel" unique_id=935161498]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=1561498776]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -40.0
+offset_right = 95.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Power-Up Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="Panel" unique_id=1661589344]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 20.0
+offset_right = 68.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Effect description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

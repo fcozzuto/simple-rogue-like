@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d4ipnk5o88l3u"]
+
+[ext_resource type="Script" uid="uid://bnl11asmoo25d" path="res://scripts/item.gd" id="1_4gq7n"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r3ghi"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4gq7n"]
+height = 0.4
+radius = 0.3
+
+[node name="Item" type="Area3D" unique_id=2027506322]
+script = ExtResource("1_4gq7n")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=36124780]
+mesh = SubResource("CylinderMesh_r3ghi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=760542468]
+shape = SubResource("CylinderShape3D_4gq7n")

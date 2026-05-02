@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dihodjr5krcjw"]
+
+[ext_resource type="Script" uid="uid://brj34couj474u" path="res://scripts/turret.gd" id="1_x3mc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fowog"]
+albedo_color = Color(1, 0.26666668, 0.26666668, 1)
+metallic = 0.5
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_x3mc5"]
+material = SubResource("StandardMaterial3D_fowog")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el7wl"]
+albedo_color = Color(1, 0.26666668, 0.26666668, 1)
+metallic = 0.5
+roughness = 0.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_485p4"]
+material = SubResource("StandardMaterial3D_el7wl")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pp6j5"]
+radius = 18.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3mc5"]
+size = Vector3(1, 1, 1.6)
+
+[node name="Turret" type="StaticBody3D" unique_id=1858740078]
+collision_layer = 2
+script = ExtResource("1_x3mc5")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1615547141]
+layers = 2
+mesh = SubResource("BoxMesh_x3mc5")
+
+[node name="Barrel" type="MeshInstance3D" parent="." unique_id=581021911]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, -0.6)
+layers = 2
+mesh = SubResource("CylinderMesh_485p4")
+
+[node name="DetectionArea" type="Area3D" parent="." unique_id=213071244]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea" unique_id=129514930]
+shape = SubResource("SphereShape3D_pp6j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=101528741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.3)
+shape = SubResource("BoxShape3D_x3mc5")

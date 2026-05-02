@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cypjbx5mvs6xg"]
+
+[ext_resource type="Script" uid="uid://b0i6ele7pqw11" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+albedo_color = Color(0, 1, 0.53333336, 1)
+emission_enabled = true
+emission = Color(0, 1, 0.53333336, 1)
+emission_energy_multiplier = 0.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qhqgy"]
+material = SubResource("StandardMaterial3D_g2els")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+albedo_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+metallic = 0.8
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlg0r"]
+material = SubResource("StandardMaterial3D_dqkch")
+size = Vector3(0.1, 0.1, 0.6)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tuyoq"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fjrip"]
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3vyb7"]
+height = 0.5
+radius = 1.2
+
+[node name="Player" type="CharacterBody3D" unique_id=1323395065]
+collision_layer = 1
+collision_mask = 3
+script = ExtResource("1_3vyb7")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=664918350]
+mesh = SubResource("CapsuleMesh_qhqgy")
+
+[node name="Weapon" type="MeshInstance3D" parent="." unique_id=1245149455]
+transform = Transform3D(0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0, 0, 0, 1, 0.5, 0.3, -0.3)
+mesh = SubResource("BoxMesh_qlg0r")
+
+[node name="Muzzle" type="Marker3D" parent="Weapon" unique_id=1147245444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.35)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1140266473]
+shape = SubResource("CapsuleShape3D_tuyoq")
+
+[node name="PickupArea" type="Area3D" parent="." unique_id=175012141]
+collision_layer = 5
+collision_mask = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea" unique_id=390022948]
+shape = SubResource("SphereShape3D_fjrip")
+
+[node name="MeleeArea" type="Area3D" parent="." unique_id=1559947752]
+collision_layer = 5
+collision_mask = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeArea" unique_id=302742712]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -1.5)
+shape = SubResource("CylinderShape3D_3vyb7")
