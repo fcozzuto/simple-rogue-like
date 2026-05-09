@@ -418,7 +418,7 @@ simple-rougue-like/
 |   |-- powerup_screen.gd
 |   `-- powerup_card.gd
 `-- textures/
-    `-- Crosshair.png
+	`-- Crosshair.png
 ```
 
 ---
@@ -427,32 +427,32 @@ simple-rougue-like/
 
 ```
 [START RUN]
-    |
-    v
+	|
+	v
 [SPAWN LEVEL]
-    |
-    v
+	|
+	v
 [PLAY]
-    |- Move, aim, dodge, melee, ranged attack
-    |- Enemies activate and attack
-    |- Projectiles resolve hits
-    |- Items can be collected
-    `- Score updates from kills
-    |
-    v
+	|- Move, aim, dodge, melee, ranged attack
+	|- Enemies activate and attack
+	|- Projectiles resolve hits
+	|- Items can be collected
+	`- Score updates from kills
+	|
+	v
 [CHECK END CONDITION]
-    |
-    |- If player dies:
-    |    |- Freeze player/enemy action
-    |    |- Show game over
-    |    `- Wait for restart
-    |
-    `- If all enemies die:
-         |- Cache current run state
-         |- Pause game
-         |- Show 3 power-up choices
-         |- Apply selected power-up
-         `- Spawn next level
+	|
+	|- If player dies:
+	|    |- Freeze player/enemy action
+	|    |- Show game over
+	|    `- Wait for restart
+	|
+	`- If all enemies die:
+		 |- Cache current run state
+		 |- Pause game
+		 |- Show 3 power-up choices
+		 |- Apply selected power-up
+		 `- Spawn next level
 ```
 
 ---
