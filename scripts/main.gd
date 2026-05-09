@@ -25,7 +25,6 @@ const BASE_PLAYER_STATE := {
 
 var current_level: int = 1
 var score: int = 0
-var survival_timer: float = 0.0
 var game_over: bool = false
 var game_won: bool = false
 var level_transition_pending: bool = false
@@ -64,17 +63,12 @@ func _ready() -> void:
 	reset_player_state()
 	start_level(1)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if game_over or game_won or level_transition_pending:
 		if game_over and Input.is_action_just_pressed("restart"):
 			restart_game()
 		return
-	
-	survival_timer += delta
-	if survival_timer >= 1.0:
-		survival_timer -= 1.0
-		add_score(10)
-	
+
 	check_level_complete()
 
 func start_level(level_num: int) -> void:
@@ -82,7 +76,6 @@ func start_level(level_num: int) -> void:
 	game_over = false
 	game_won = false
 	level_transition_pending = true
-	survival_timer = 0.0
 	get_tree().paused = false
 	
 	call_deferred("_setup_level")
