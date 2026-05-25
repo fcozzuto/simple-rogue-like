@@ -25,11 +25,13 @@ func _process(_delta: float) -> void:
 			health_bar.max_value = player_max_health
 			health_text.text = "HP: %d/%d" % [player_health, player_max_health]
 			
+			var dodge_max = maxf(player_dodge_cd, 0.001)
+			dodge_bar.max_value = dodge_max
 			var dodge_ready = player_dodge_cd_timer <= 0
 			if dodge_ready:
-				dodge_bar.value = player_dodge_cd
+				dodge_bar.value = dodge_max
 			else:
-				dodge_bar.value = player_dodge_cd - player_dodge_cd_timer
+				dodge_bar.value = clampf(dodge_max - player_dodge_cd_timer, 0.0, dodge_max)
 	
 	score_label.text = "Score: %d" % score
 	level_label.text = "Level: %d" % level

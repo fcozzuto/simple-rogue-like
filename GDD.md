@@ -243,7 +243,7 @@ Power-ups are offered after the player clears a level. The game pauses and shows
 - Floor size: 30x30
 - Walls: north, south, east, west
 - No internal obstacles
-- Player spawn: `(-12, 0.5, 0)`
+- Player spawn: `(-13, 0.5, 0)`
 
 ### 7.2 Base Level Item Positions
 

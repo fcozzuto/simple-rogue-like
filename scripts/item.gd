@@ -68,8 +68,10 @@ func resolve_player(collider: Node) -> Node3D:
 		return null
 	if collider.is_in_group("player"):
 		return collider
-	if collider is Area3D and collider.get_parent() and collider.get_parent().is_in_group("player"):
-		return collider.get_parent()
+	if collider is Area3D:
+		var parent := collider.get_parent()
+		if parent and parent.is_in_group("player") and collider.name == "PickupArea":
+			return parent
 	return null
 
 func _check_initial_overlap() -> void:

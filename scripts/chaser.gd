@@ -84,7 +84,7 @@ func take_damage(amount: int) -> void:
 
 func drop_health_potion() -> void:
 	var main = get_tree().get_first_node_in_group("main")
-	if main.has_method("spawn_item"):
+	if main and main.has_method("spawn_item"):
 		main.spawn_item(global_position, "health_potion")
 
 func refresh_player() -> void:

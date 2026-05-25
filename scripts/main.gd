@@ -5,6 +5,7 @@ signal level_complete
 
 const TURRET_KILL_SCORE := 100
 const CHASER_KILL_SCORE := 50
+const PLAYER_SPAWN_POSITION := Vector3(-13.0, 0.5, 0.0)
 const BASE_PLAYER_STATE := {
 	"move_speed": 6.0,
 	"dodge_distance": 3.5,
@@ -113,7 +114,7 @@ func spawn_player() -> void:
 	player = player_scene.instantiate()
 	player.name = "Player"
 	add_child(player)
-	player.global_position = Vector3(-12, 0.5, 0)
+	player.global_position = PLAYER_SPAWN_POSITION
 	if player.has_method("apply_runtime_state"):
 		player.apply_runtime_state(player_state)
 	
