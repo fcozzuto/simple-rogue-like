@@ -15,10 +15,6 @@ run/main_scene="uid://cn5nv7j5g2opx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[dotnet]
-
-project/assembly_name="SimpleRogueLike"
-
 [input]
 
 move_forward={
